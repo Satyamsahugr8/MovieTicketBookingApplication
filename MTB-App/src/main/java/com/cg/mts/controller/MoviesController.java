@@ -52,14 +52,21 @@ public class MoviesController {
 	 * @throws IOException 
 	 * @throws AccessForbiddenException
 	 */
+	
 	@PostMapping("/add")
-	public ResponseEntity<Movie> addMovie(@RequestBody Movie movie)
-			throws MovieNotFoundException, IOException {
+	public ResponseEntity<Movie> addMovie(@RequestBody Movie movie) throws MovieNotFoundException, IOException {
 		movie = moviesService.addMovie(movie);
 		logger.info("-------Movie Added Successfully---------");
 		return new ResponseEntity<>(movie, HttpStatus.CREATED);
 	}
+	
+//	@PostMapping("/add")
+//	public Movie addMovie(@RequestBody Movie movie) throws MovieNotFoundException, IOException {
+//		logger.info("-------Movie Added Successfully---------");
+//		return moviesService.addMovie(movie);
+//	}
 
+	
 	/**
 	 * Updates a existing Movie record in the database.
 	 * 
@@ -68,6 +75,8 @@ public class MoviesController {
 	 * @throws MovieNotFoundException
 	 * @throws AccessForbiddenException
 	 */
+	
+	
 	@PutMapping("/update")
 	public ResponseEntity<Movie> updateMovie(@RequestBody Movie movie)
 			throws MovieNotFoundException {
@@ -82,6 +91,13 @@ public class MoviesController {
 		}
 		return response;
 	}
+	
+//	@PutMapping("/update")
+//	public Movie updateMovie(@RequestBody Movie movie) throws MovieNotFoundException {
+//		return moviesService.updateMovie(movie);
+//	}
+//	
+	
 	
 	@PutMapping("/map")
 	public ResponseEntity<Movie> addToShow(@RequestBody Movie movie,@RequestParam(required = false) Integer showId)
