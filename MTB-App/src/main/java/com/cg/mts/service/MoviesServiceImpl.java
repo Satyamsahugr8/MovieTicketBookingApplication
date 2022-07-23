@@ -126,5 +126,19 @@ public class MoviesServiceImpl implements MoviesService {
 		return mvList;
 	}
 
+	@Override
+	public Movie updateMovieById(Movie movie,Integer movieid) {
+		Movie movie1 = moviesrepository.findById(movieid).get();
+		movie1.setMovieName(movie.getMovieName());
+		movie1.setMovieGenre(movie.getMovieGenre());
+		movie1.setMovieHours(movie.getMovieHours());
+		movie1.setMovieLanguage(movie.getMovieLanguage());
+		movie1.setMovieDate(movie.getMovieDate());
+		movie1.setMovieDescription(movie.getMovieDescription());
+		Movie updatedMovie = moviesrepository.save(movie1);
+		return updatedMovie;
+	}
+
+
 
 }

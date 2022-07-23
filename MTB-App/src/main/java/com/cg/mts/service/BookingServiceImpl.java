@@ -47,13 +47,19 @@ public class BookingServiceImpl implements IBookingService {
 		 * BookingNotFoundException("Booking with this transcationId is already done");
 		 * } else {}
 		 */
-		if(showId!=null) {
+		if(showId!=null && customerId!=null) {
 				//customer = custoRepository.getOne(customerId);
-				show=showRepository.findById(showId).get();
+			customer=custoRepository.findById(customerId).get();
+			
+			show=showRepository.findById(showId).get();
 				show.setBooking(booking);
 				//booking.setCustomer(customer);
 				booking.setShow(show);
+				booking.setCustomer(customer);
+				
 		}
+		
+		
 			bookingRepository.saveAndFlush(booking);
 			showRepository.saveAndFlush(show);
 		return bookingRepository.findById(booking.getTransactionId()).get();

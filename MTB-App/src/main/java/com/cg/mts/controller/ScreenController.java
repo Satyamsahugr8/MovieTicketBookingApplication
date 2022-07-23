@@ -28,6 +28,7 @@ import com.cg.mts.service.ScreenService;
  *
  */
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/screens")
 public class ScreenController {

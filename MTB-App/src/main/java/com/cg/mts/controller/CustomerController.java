@@ -31,6 +31,7 @@ import com.cg.mts.service.CustomerService;
  *
  */
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {

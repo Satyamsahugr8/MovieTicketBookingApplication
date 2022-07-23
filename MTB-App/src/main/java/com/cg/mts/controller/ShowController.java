@@ -28,6 +28,7 @@ import com.cg.mts.service.ShowService;
  * @category Show Module
  */
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/shows")
 public class ShowController {

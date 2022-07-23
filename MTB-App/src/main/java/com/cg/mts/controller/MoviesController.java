@@ -34,6 +34,7 @@ import com.cg.mts.pojo.Movie;
  *
  */
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/movies")
 public class MoviesController {
@@ -99,6 +100,29 @@ public class MoviesController {
 //	
 	
 	
+	
+	
+	
+	@PutMapping("/update/{movieId}")
+	public ResponseEntity<Movie> updateMovieById(@RequestBody Movie movie,@PathVariable int movieId) throws MovieNotFoundException
+	{
+		ResponseEntity<Movie> response = null;
+		if (movie == null) {
+			response = new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		} else {
+			movie = moviesService.updateMovieById(movie,movieId);
+			response = new ResponseEntity<>(movie, HttpStatus.OK);
+			logger.info("-------Movie Updated Successfully---------");
+		}
+		return response;
+	}
+	
+	
+	
+	
+	
+	
+	
 	@PutMapping("/map")
 	public ResponseEntity<Movie> addToShow(@RequestBody Movie movie,@RequestParam(required = false) Integer showId)
 			throws MovieNotFoundException {
@@ -124,6 +148,7 @@ public class MoviesController {
 	 * @throws MovieNotFoundException
 	 * @throws AccessForbiddenException
 	 */
+	
 	@GetMapping("/findall")
 	public ResponseEntity<List<Movie>> viewMovieList() throws MovieNotFoundException {
 

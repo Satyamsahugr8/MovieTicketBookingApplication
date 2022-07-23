@@ -13,7 +13,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name="user")
+@Table(name="user_abc")
 public class User {
 	
 	@Id
@@ -29,7 +29,7 @@ public class User {
 	@Column(name="role")
 	private String role;
 	
-	
+	@JsonIgnore
 	@OneToOne
 	private Customer customer;
 	

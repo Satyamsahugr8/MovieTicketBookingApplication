@@ -33,6 +33,7 @@ import com.cg.mts.service.IBookingService;
  *
  */
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/booking")
 public class BookingController {
@@ -52,6 +53,7 @@ public class BookingController {
 	 * @throws AccessForbiddenException
 	 * @throws BookingNotFoundException
 	 */
+	
 	@PostMapping(value = "/insert", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Booking> addTicketBooking(@RequestBody Booking t,
 			@RequestParam(required = false) Integer customerId,@RequestParam(required = false) Integer showId)
@@ -70,6 +72,7 @@ public class BookingController {
 	 * @throws AccessForbiddenException
 	 * @throws BookingNotFoundException
 	 */
+	
 	@GetMapping("/findall")
 	public ResponseEntity<List<Booking>> viewAllBookings() throws AccessForbiddenException, BookingNotFoundException {
 		/*

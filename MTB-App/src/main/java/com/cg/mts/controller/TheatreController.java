@@ -27,6 +27,7 @@ import com.cg.mts.service.TheatreService;
  *
  */
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/theatre")
 public class TheatreController {

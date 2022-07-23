@@ -27,6 +27,7 @@ import com.cg.mts.service.TicketService;
  *
  */
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/tickets")
 public class TicketController {
@@ -46,13 +47,16 @@ public class TicketController {
 	 * @throws TicketNotFoundException
 	 */
 	@PostMapping("/add")
-	public ResponseEntity<Ticket> addATicket(@RequestBody Ticket ticket,@RequestParam(required = false) Integer bookingId)
+	public ResponseEntity<Ticket> addATicket(@RequestBody Ticket ticket,@RequestParam(required = false) Integer transactionId)
 			throws AccessForbiddenException, TicketNotFoundException {
 		
-		ticket = ticketService.addTicket(ticket,bookingId);
+		ticket = ticketService.addTicket(ticket,transactionId);
+		
 		/* System.out.println(ticket.getSeats()); */
+		
 		logger.info("-------Ticked Created Successfully---------");
 		return new ResponseEntity<>(ticket, HttpStatus.CREATED);
+
 	}
 
 	/**
@@ -75,6 +79,7 @@ public class TicketController {
 	 * @throws TicketNotFoundException
 	 * @throws AccessForbiddenException
 	 */
+	
 	@GetMapping("/{ticketId}")
 	public Ticket findATicket(@PathVariable int ticketId) throws TicketNotFoundException, AccessForbiddenException {	
 		Ticket t = null;

@@ -8,6 +8,7 @@ import com.cg.mts.exception.BookingNotFoundException;
 import com.cg.mts.exception.ScreenNotFoundException;
 
 public interface IBookingService {
+	
 	public Booking addBooking(Booking booking, Integer customerId,Integer showId) throws BookingNotFoundException;
 
 	public List<Booking> viewBookingList() throws BookingNotFoundException;

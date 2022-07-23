@@ -24,7 +24,7 @@ import com.cg.mts.service.IUserService;
  *
  */
 
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -55,9 +55,14 @@ public class UserController {
 		 */
 		if (user.getRole().equalsIgnoreCase("CUSTOMER")) {
 			Customer customer = new Customer(user.getUsername(), null, null, null, user.getPassword());
+			
 			logger.info("-----------------Customer Added---------------------");
 			customerRepository.saveAndFlush(customer);
 			user.setCustomer(customer);
+			
+			// by satyam
+//			User user = new User(user.getUsername(),user.getRole(),user.getPassword(), customer);
+			
 		}
 		logger.info("-----------------User Added---------------------");
 		return userService.addUser(user);

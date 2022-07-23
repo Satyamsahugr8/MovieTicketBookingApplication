@@ -18,6 +18,7 @@ import com.cg.mts.service.LoginService;
  *
  */
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class LoginController {
 

@@ -18,6 +18,7 @@ import com.cg.mts.service.IAdminService;
  *
  */
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/admin")
 public class AdminController {

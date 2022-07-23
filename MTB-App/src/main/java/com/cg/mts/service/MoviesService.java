@@ -25,4 +25,6 @@ public interface MoviesService {
 	public List<Movie> viewMovieList(int theatreid);
 
 	public List<Movie> viewMovieList(LocalDate date);
+
+	public Movie updateMovieById(Movie movie, Integer movieid) throws MovieNotFoundException;
 }
