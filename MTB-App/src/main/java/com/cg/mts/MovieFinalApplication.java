@@ -7,7 +7,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 
 @SpringBootApplication
-@ComponentScan("com.cg")
 public class MovieFinalApplication {
 
 	public static void main(String[] args) {

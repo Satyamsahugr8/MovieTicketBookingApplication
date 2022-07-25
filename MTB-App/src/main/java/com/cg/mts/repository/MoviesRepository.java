@@ -14,5 +14,6 @@ public interface MoviesRepository extends JpaRepository<Movie, Integer> {
 	// List<Movie> getAllByTheatreId(@Param("id") int id);
 
 	List<Movie> getAllBymovieDate(LocalDate date);
+//	public List<Movie> findBytheatreId(int theatreId);
 
 }
