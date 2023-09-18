@@ -20,11 +20,7 @@ import com.cg.mts.exception.SeatNotFoundException;
 import com.cg.mts.pojo.Seat;
 import com.cg.mts.service.ISeatService;
 
-/**
- * 
- * 
- *
- */
+
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
